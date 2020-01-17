@@ -1,0 +1,8 @@
+enum Permission {
+  USER
+  AUTHOR
+}
+
+type Mutation {
+  signUp(userName: String!, email: String!, permission: Permission!): Boolean!
+}

@@ -1,0 +1,65 @@
+type User {
+  id: ID!
+  permission: Permission!
+  userName: String!
+  email: String!
+  avatar: String
+  bio: String
+  isSelf: Boolean!
+  posts: [Post!]!
+  comments: [Comment!]!
+  loginSecret: String
+  createdAt: String!
+  updatedAt: String
+}
+
+type Post {
+  id: ID!
+  title: String!
+  mainImage: String
+  category: Categories!
+  user: User!
+  hashtag: Hashtag!
+  images: [Image!]!
+  comments: [Comment!]!
+  createdAt: String!
+  updatedAt: String
+}
+
+type Comment {
+  id: ID!
+  text: String!
+  user: User!
+  post: Post!
+  createdAt: String!
+  updatedAt: String
+}
+
+type Image {
+  id: ID!
+  url: String!
+  post: Post!
+  createdAt: String!
+  updatedAt: String
+}
+
+type Hashtag {
+  id: ID!
+  name: String!
+  post: Post!
+  createdAt: String!
+  updatedAt: String
+}
+
+enum Permission {
+  USER
+  AUTHOR
+}
+
+enum Categories {
+  NEWS
+  REVIEWS
+  PHONES
+  POST
+  QNA
+}
