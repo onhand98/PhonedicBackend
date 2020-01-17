@@ -32,7 +32,7 @@
 - [x] editprofile
 - [x] deleteAccount
 - [ ] uploadPost
-- [ ] addHashTag
+- [ ] addTag
 - [ ] deletePost
 - [ ] searchPost
 - [ ] deleteComment

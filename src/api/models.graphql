@@ -15,12 +15,12 @@ type User {
 
 type Post {
   id: ID!
-  title: String!
-  mainImage: String
   category: Categories!
+  title: String!
+  mainImage: String!
   user: User!
-  hashtag: Hashtag!
-  images: [Image!]!
+  content: String!
+  tag: Tag
   comments: [Comment!]!
   createdAt: String!
   updatedAt: String
@@ -35,18 +35,10 @@ type Comment {
   updatedAt: String
 }
 
-type Image {
-  id: ID!
-  url: String!
-  post: Post!
-  createdAt: String!
-  updatedAt: String
-}
-
-type Hashtag {
+type Tag {
   id: ID!
   name: String!
-  post: Post!
+  posts: [Post!]!
   createdAt: String!
   updatedAt: String
 }

@@ -16,12 +16,12 @@ type User {
 
 type Post {
   id: ID! @id
-  title: String! 
-  mainImage: String
   category: Categories! 
+  title: String! 
+  mainImage: String!
   user: User @relation(name: "PostsOfUser")
-  hashtag: Hashtag! @relation(link: INLINE)
-  images: [Image!]! @relation(name: "ImagesOfPost", onDelete: CASCADE)
+  content: String!
+  tag: Tag @relation(name:"PostsOfTag")
   comments: [Comment!]! @relation(name: "CommentsOfPost", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -37,18 +37,10 @@ type Comment {
   updatedAt: DateTime! @updatedAt
 }
 
-type Image {
+type Tag {
   id: ID! @id
-  url: String!
-  post: Post @relation(name: "ImagesOfPost")
-  createdAt: DateTime! @createdAt
-  updatedAt: DateTime! @updatedAt
-}
-
-type Hashtag {
-  id: ID! @id
-  name: String! @nuique
-  post: Post!
+  name: String! @unique
+  posts: [Post!]! @relation(name: "PostsOfTag")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

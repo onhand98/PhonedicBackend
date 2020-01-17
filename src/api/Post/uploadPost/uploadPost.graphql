@@ -1,3 +1,16 @@
+enum Categories {
+  NEWS
+  REVIEWS
+  PHONES
+  POST
+  QNA
+}
+
 type Mutation {
-  upload(caption: String!, files: [String!]!, location: String): Post!
+  uploadPost(
+    category: Categories!
+    title: String!
+    mainImage: String!
+    content: String!
+  ): Post!
 }

@@ -21,7 +21,7 @@ const sendMail = email => {
 
 export const sendSecretMail = (address, secret) => {
   const email = {
-    from: "onhand98@gmail.com",
+    from: "Phonedic@Phonedic.com",
     to: address,
     subject: "🔒 Login Secret for Phonedic",
     html: `Hello! Your Login secret is <strong>${secret}</strong>.<br/>Copy paste on the app/website to Log In`
