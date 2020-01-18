@@ -1,0 +1,11 @@
+enum Categories {
+  NEWS
+  REVIEWS
+  PHONES
+  POST
+  QNA
+}
+
+type Mutation {
+  deletePost(id: String!): Boolean!
+}

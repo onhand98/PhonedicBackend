@@ -2,14 +2,16 @@ import { prisma } from "../../../../generated/prisma-client";
 
 export default {
   Query: {
-    searchPost: async (_, args) =>
-      prisma.posts({
-        where: {
-          OR: [
-            { location_starts_with: args.term },
-            { caption_starts_with: args.term }
-          ]
-        }
-      })
+    searchPost: async (_, args) => {
+      try {
+        const { term } = args;
+        return await prisma.posts({
+          where: { OR: [{ title_starts_with: term }, { title_contains: term }] }
+        });
+      } catch (error) {
+        console.log(error);
+        return false;
+      }
+    }
   }
 };

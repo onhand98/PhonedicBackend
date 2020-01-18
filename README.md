@@ -13,10 +13,16 @@
 - [x] seeUserProfile
 - [x] editprofile
 - [x] deleteAccount
+- [ ] seeNewsList
+- [ ] seeReivewsList
+- [ ] seePhonesList
+- [ ] seeReveiwsList
+- [ ] seePostList
+- [ ] seeQnaList
 - [x] uploadPost
 - [x] seePost
-- [ ] deletePost
-- [ ] searchPost
+- [x] deletePost
+- [x] searchPost
 - [ ] addComment
 - [ ] deleteComment
 - [ ] Get Notifications

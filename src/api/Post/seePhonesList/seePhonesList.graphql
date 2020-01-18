@@ -1,0 +1,3 @@
+type Query {
+  seePhonesList(skipNumber: Int!): [Post!]!
+}
