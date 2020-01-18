@@ -2,23 +2,23 @@ import { prisma } from "../../../../generated/prisma-client";
 
 export default {
   Mutation: {
-    deleteAccount: async (_, args, { request, isAuthenticated }) => {
+    deleteAccount: async (_, args, { request, isUser, isAuthor }) => {
       try {
         const { userName } = args;
-        isAuthenticated(request);
-        const {
-          user: { userName: meName, permission }
-        } = request;
-        console.log(userName, meName, permission);
-        if (userName === meName) {
-          await prisma.deleteUser({ userName });
-          return true;
-        } else if (permission === "AUTHOR") {
-          console.log("IM here");
+
+        if (isUser(request)) {
+          const {
+            user: { userName: meName }
+          } = request;
+          if (userName === meName) {
+            await prisma.deleteUser({ userName });
+            return true;
+          }
+        } else if (isAuthor(request)) {
           await prisma.deleteUser({ userName });
           return true;
         } else {
-          throw Error("You can't delete account");
+          throw Error("Sign First");
         }
       } catch (error) {
         console.log(error);

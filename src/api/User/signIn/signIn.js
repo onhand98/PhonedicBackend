@@ -16,7 +16,7 @@ export default {
           });
           return generateToken(user.id);
         } else {
-          throw Error("Wrong Login Secret");
+          throw Error("Wrong Sign In Secret");
         }
       } catch (error) {
         console.log(error);

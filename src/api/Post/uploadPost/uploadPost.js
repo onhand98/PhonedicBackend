@@ -2,17 +2,13 @@ import { prisma } from "../../../../generated/prisma-client";
 
 export default {
   Mutation: {
-    uploadPost: async (_, args, { request, isAuthenticated }) => {
+    uploadPost: async (_, args, { request, isUser, isAuthor }) => {
       try {
-        isAuthenticated(request);
         const {
-          user: { id, permission }
+          user: { id }
         } = request;
         const { category, title, mainImage, content } = args;
-        if (
-          (permission === "USER" && category === "POST") ||
-          category === "QNA"
-        ) {
+        if (isUser(request) && (category === "POST" || category === "QNA")) {
           return await prisma.createPost({
             category,
             title,
@@ -21,9 +17,10 @@ export default {
             user: { connect: { id } }
           });
         } else if (
-          (permission === "AUTHOR" && category === "NEWS") ||
-          category === "REVIEWS" ||
-          category === "PHONES"
+          isAuthor(request) &&
+          (category === "NEWS" ||
+            category === "REVIEWS" ||
+            category === "PHONES")
         ) {
           return await prisma.createPost({
             category,

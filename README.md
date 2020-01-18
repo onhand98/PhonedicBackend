@@ -13,7 +13,8 @@
 - [x] seeUserProfile
 - [x] editprofile
 - [x] deleteAccount
-- [ ] uploadPost
+- [x] uploadPost
+- [x] seePost
 - [ ] deletePost
 - [ ] searchPost
 - [ ] addComment
@@ -22,17 +23,11 @@
 
 ### Author
 
-- [x] checkEmail
-- [x] checkUsername
 - [x] signUp
-- [x] requestSecret
-- [x] signIn
-- [x] seeMyProfile
-- [x] seeUserProfile
-- [x] editprofile
+- [x] searchUser
 - [x] deleteAccount
-- [ ] uploadPost
-- [ ] addTag
+- [x] uploadPost
+- [x] addTag
 - [ ] deletePost
 - [ ] searchPost
 - [ ] deleteComment

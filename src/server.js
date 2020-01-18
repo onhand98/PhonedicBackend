@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 import schema from "./schema";
 import "./passport";
 import { authenticateJwt } from "./passport";
-import { isAuthenticated } from "./middlewares";
+import { isAuthenticated, isUser, isAuthor } from "./middlewares";
 import { uploadMiddleware, uploadController } from "./upload";
 dotenv.config();
 
@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 4000;
 
 const server = new GraphQLServer({
   schema,
-  context: ({ request }) => ({ request, isAuthenticated })
+  context: ({ request }) => ({ request, isAuthenticated, isUser, isAuthor })
 });
 
 server.express.use(logger("dev"));
