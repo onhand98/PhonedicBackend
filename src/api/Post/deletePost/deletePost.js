@@ -7,18 +7,26 @@ export default {
         const {
           user: { id }
         } = request;
-        const { id: postId } = args;
+        const { postId } = args;
         if (isUser(request)) {
-          const post = await prisma.$exists.post({ id: postId, user: { id } });
-          if (post) {
+          const existPost = await prisma.$exists.post({
+            id: postId,
+            user: { id }
+          });
+          if (existPost) {
             await prisma.deletePost({ id: postId });
             return true;
           } else {
-            throw Error("Wrong Access");
+            throw Error("Post doesn't exist");
           }
         } else if (isAuthor(request)) {
-          await prisma.deletePost({ id: postId });
-          return true;
+          const existPost = await prisma.$exists.post({ id: postId });
+          if (existPost) {
+            await prisma.deletePost({ id: postId });
+            return true;
+          } else {
+            throw Error("Post doesn't exist");
+          }
         } else {
           throw Error("Sign In First");
         }

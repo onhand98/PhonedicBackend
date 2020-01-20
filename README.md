@@ -13,18 +13,18 @@
 - [x] seeUserProfile
 - [x] editprofile
 - [x] deleteAccount
-- [ ] seeNewsList
-- [ ] seeReivewsList
-- [ ] seePhonesList
-- [ ] seeReveiwsList
-- [ ] seePostList
-- [ ] seeQnaList
+- [x] seeNewsList
+- [x] seeReivewsList
+- [x] seePhonesList
+- [x] seeReveiwsList
+- [x] seePostList
+- [x] seeQnaList
 - [x] uploadPost
 - [x] seePost
 - [x] deletePost
 - [x] searchPost
-- [ ] addComment
-- [ ] deleteComment
+- [x] addComment
+- [x] deleteComment
 - [ ] Get Notifications
 
 ### Author
@@ -34,6 +34,7 @@
 - [x] deleteAccount
 - [x] uploadPost
 - [x] addTag
-- [ ] deletePost
-- [ ] searchPost
-- [ ] deleteComment
+- [x] deleteTag
+- [x] deletePost
+- [x] searchPost
+- [x] deleteComment

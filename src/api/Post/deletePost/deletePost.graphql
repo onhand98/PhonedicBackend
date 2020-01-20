@@ -7,5 +7,5 @@ enum Categories {
 }
 
 type Mutation {
-  deletePost(id: String!): Boolean!
+  deletePost(postId: String!): Boolean!
 }
