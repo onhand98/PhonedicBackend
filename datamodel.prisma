@@ -22,6 +22,7 @@ type Post {
   user: User @relation(name: "PostsOfUser")
   content: String!
   tag: Tag @relation(name:"PostsOfTag")
+  images: [Image!]! @relation(name: "ImagesOfPost", onDelete: CASCADE)
   comments: [Comment!]! @relation(name: "CommentsOfPost", onDelete: CASCADE)
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
@@ -41,6 +42,14 @@ type Tag {
   id: ID! @id
   name: String! @unique
   posts: [Post!]! @relation(name: "PostsOfTag")
+  createdAt: DateTime! @createdAt
+  updatedAt: DateTime! @updatedAt
+}
+
+type Image {
+  id: ID! @id
+  url: String!
+  post: Post @relation(name: "ImagesOfPost")
   createdAt: DateTime! @createdAt
   updatedAt: DateTime! @updatedAt
 }

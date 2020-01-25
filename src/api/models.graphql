@@ -43,6 +43,14 @@ type Tag {
   updatedAt: String
 }
 
+type Image {
+  id: ID!
+  url: String!
+  post: Post!
+  createdAt: String!
+  updatedAt: String
+}
+
 enum Permission {
   USER
   AUTHOR
